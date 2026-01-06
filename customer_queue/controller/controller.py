@@ -10,7 +10,7 @@ class CustomerQueue(http.Controller):
     @http.route('/api/patient/register', type='http', auth='public', methods=['POST'], csrf=False)
     def register_patient(self, **kwargs):
         try:
-            # Read raw JSON data
+            # Read JSON data
             data = json.loads(request.httprequest.data.decode('utf-8'))
             _logger.info(f"Received patient registration data: {data}")
 
@@ -23,26 +23,31 @@ class CustomerQueue(http.Controller):
                 )
 
             # Check if phone already registered today
-            existing = request.env['patient.queue'].sudo().search([
-                ('phone', '=', data['phone']),
-                ('registration_date', '>=', fields.Date.today())
-            ], limit=1)
-            if existing:
-                return request.make_response(
-                    json.dumps({'success': False, 'error': 'Phone number already registered today'}),
-                    headers=[('Content-Type', 'application/json')],
-                    status=400
-                )
+            # existing = request.env['patient.queue'].sudo().search([
+            #     ('phone', '=', data['phone']),
+            #     ('registration_date', '>=', fields.Date.today())
+            # ], limit=1)
+            # if existing:
+            #     return request.make_response(
+            #         json.dumps({'success': False, 'error': 'Phone number already registered today'}),
+            #         headers=[('Content-Type', 'application/json')],
+            #         status=400
+            #     )
 
-            # Create patient
-            patient = request.env['patient.queue'].sudo().create({
+            # Prepare patient values
+            patient_vals = {
                 'name': data['name'],
                 'phone': data['phone'],
                 'email': data.get('email', ''),
-            })
+            }
+            if data.get('counter_id'):
+                patient_vals['counter_id'] = data['counter_id']
+
+            # Create patient
+            patient = request.env['patient.queue'].sudo().create(patient_vals)
             _logger.info(f"Patient created: {patient.name}, Token: {patient.token_number}")
 
-            # Return REST-style JSON response
+            # Return JSON response
             return request.make_response(
                 json.dumps({
                     'success': True,
@@ -54,7 +59,7 @@ class CustomerQueue(http.Controller):
                     }
                 }),
                 headers=[('Content-Type', 'application/json')],
-                status=201  # Created
+                status=201
             )
 
         except Exception as e:
@@ -64,6 +69,7 @@ class CustomerQueue(http.Controller):
                 headers=[('Content-Type', 'application/json')],
                 status=500
             )
+
 
 
     # --------------------------
