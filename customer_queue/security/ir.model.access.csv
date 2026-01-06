@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_token_token,access.token.token,model_token_token,,1,1,1,1
+access_counter_counter,access.counter.counter,model_counter_counter,,1,1,1,1
+access_customer_service,access.customer.service,model_customer_service,,1,1,1,1
+access_customer_service_line,access.customer.service.line,model_customer_service_line,,1,1,1,1
+access_token_show,access.token.show,model_token_show,,1,1,1,1

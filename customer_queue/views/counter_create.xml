@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Tree view      -->
+    <record id="counter_create_tree_view" model="ir.ui.view">
+        <field name="name">counter.create.tree.view</field>
+        <field name="model">counter.counter</field>
+        <field name="arch" type="xml">
+            <tree string="Counter">
+                <field name="name"/>
+                <field name="counter_name"/>
+                <field name="department_name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- End Tree View   -->
+    <record id="counter_create_form_view" model="ir.ui.view">
+        <field name="name">counter.create.form.view</field>
+        <field name="model">counter.counter</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group style="text-align:center" string="Create Counter"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="counter_name"/>
+                            <field name="department_name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_counter_create" model="ir.actions.act_window">
+        <field name="name">Create Counter</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">counter.counter</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

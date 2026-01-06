@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="token_screen_form_view" model="ir.ui.view">
+        <field name="name">token.screen.form.view</field>
+        <field name="model">token.show</field>
+        <field name="arch" type="xml">
+            <form >
+                <div style="height:400px;">
+                    <h3 style="text-align:center; padding-top:180px">
+                        <span>************* Token Number ***************</span>
+                    </h3>
+                    <br/>
+                    <label for="token_number"/>
+                    <div class=" o_row">
+                        <field style="text-align:center; color:green;font-size: 26px;" name="token_number" readonly="1"/>
+                    </div>
+                </div>
+                <footer></footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_token_screen_show" model="ir.actions.act_window">
+        <field name="name">Token Screen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">token.show</field>
+        <field name="view_mode">form</field>
+<!--        <field name="target">new</field>-->
+    </record>
+<!--    <menuitem id="token_screen_id" name="Token Display" parent="customer_queue.queue_root_menu"-->
+<!--              action="action_token_screen" sequence="6"/>-->
+</odoo>

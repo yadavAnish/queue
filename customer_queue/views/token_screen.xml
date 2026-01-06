@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="token_screen_tree_view" model="ir.ui.view">
+        <field name="name">token.screen.tree.view</field>
+        <field name="model">token.show</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="token_number"/>
+            </tree>
+        </field>
+    </record>
+    <record id="token_screen_form_view" model="ir.ui.view">
+        <field name="name">token.screen.form.view</field>
+        <field name="model">token.show</field>
+        <field name="arch" type="xml">
+            <form reload="5">
+                <div style="height:400px;">
+                    <h3 style="text-align:center; padding-top:180px">
+                        <span>************* Token Number ***************</span>
+                    </h3>
+                    <br/>
+                    <div class=" o_row">
+                        <field name="token_number"  style="text-align:center; color:green;font-size: 26px;"  readonly="1"/>
+                    </div>
+                    <div reload="2"/>
+                </div>
+                <footer></footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_token_screen_show" model="ir.actions.act_window">
+        <field name="name">Token Screen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">token.show</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="target">new</field>-->
+    </record>
+
+</odoo>
+
+<!--<record id="action_client_base_menu" model="ir.actions.client">-->
+<!--          <field name="name">Open Settings Menu</field>-->
+<!--          <field name="tag">reload</field>-->
+<!--          <field name="params" eval="{'menu_id': ref('base.menu_administration')}"/>-->
+<!--      </record>-->
+
+<!--return {-->
+<!--'type': 'ir.actions.client',-->
+<!--'tag': 'reload',-->
+<!--}-->

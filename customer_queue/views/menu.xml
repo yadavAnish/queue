@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="queue_root_menu" name="Queue" sequence="1"/>
+    <menuitem id="token_create_id" name="Token" parent="customer_queue.queue_root_menu"
+              action="action_customer_token" sequence="3"/>
+    <menuitem id="counter_create_id" name="Counter Create" parent="customer_queue.queue_root_menu"
+              action="action_counter_create" sequence="4"/>
+    <menuitem id="customer_service_id" name="Customer Service" parent="queue_root_menu"
+              action="action_customer_service_view" sequence="5"/>
+    <menuitem id="token_screen_id" name="Token Display" parent="queue_root_menu"
+              action="action_token_screen_show" sequence="6"/>
+</odoo>

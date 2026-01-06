@@ -1,0 +1,73 @@
+<odoo>
+
+    <template id="web_customer_queue" name="Customer Queue">
+        <t t-call="website.layout">
+            <style>
+                input:focus{
+                outline: none;
+                }
+                .btn1 , .btn2{
+                background-color:#0E8388;
+                width:200px;
+                height:48px;
+                border:0;
+                border-radius:5px;
+                color:#CBE4DE;
+                font-size:30px;
+                }
+                .btn2{
+                background-color:#CBE4DE;
+                color:#0E8388;
+                }
+            </style>
+            <div class="container">
+
+                <div style="width:70vw;background-color:#2C3333;height:70vh;margin:1rem;border-radius:20px;padding:2rem;">
+                    <h1 style="transform: rotate(-45deg);display:inline-block;color:#CBE4DE;background-color:#0E8388;width:190px;margin-left:-5rem;padding:0 1rem;text-align:center;">
+                        Token
+                    </h1>
+                    <input placeholder="New Token"
+                           style="color:#CBE4DE;background-color:transparent;border:0;border-bottom: 2px solid #CBE4DE;width:20vw;font-size:42px;"/>
+
+                    <h4 style="color:#CBE4DE;margin-top:5rem;margin-left:2rem;">Details</h4>
+                    <div class="container"
+                         style="padding:0 5rem 2rem 5rem;margin-top:0;display:flex;justify-content:space-between;">
+
+                        <div>
+                            <input placeholder="Customer Name"
+                                   class=":focus{outline: none;}"
+                                   style="color:#CBE4DE;background-color:transparent;border:none;border-bottom: 2px solid #CBE4DE;width:20vw;font-size:30px;"/>
+                            <br/>
+                            <input placeholder="Phone Number"
+                                   style="color:#CBE4DE;background-color:transparent;border:0;border-bottom: 2px solid #CBE4DE;width:20vw;font-size:30px;margin-top:4rem;"/>
+                        </div>
+                        <div>
+
+                            <select style="color:#CBE4DE;background-color:transparent;border:0;border-bottom: 2px solid #CBE4DE;width:20vw;font-size:30px;">
+                                <option value="" disabled="true" selected="True">Department</option>
+                                <option value="Administration">Administration</option>
+                                <option value="Management">Management</option>
+                            </select>
+                            <!--                            <input placeholder="Department"-->
+                            <!--                                   style="color:#CBE4DE;background-color:transparent;border:0;border-bottom: 2px solid #CBE4DE;width:20vw;font-size:30px;"/>-->
+                            <br/>
+                            <input style="color:#CBE4DE;height:1.5rem;width:1.5rem;background-color:transparent;"
+                                   type="checkbox" name="service" value="True"/>
+                            <label style="color:#CBE4DE;font-size:24px;padding-left:20px;margin-top:4rem;"
+                                   for="service">Service Done
+                            </label>
+                        </div>
+                    </div>
+                    <div style="text-align:center;margin-top:2rem;">
+                    <div style="margin:auto;display:inline-flex;gap:2rem;">
+                        <button class="btn1">Create</button>
+                        <button class="btn2">Cancel</button>
+                    </div>
+                        </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>
