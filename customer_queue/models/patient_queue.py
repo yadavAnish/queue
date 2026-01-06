@@ -10,7 +10,7 @@ class PatientQueue(models.Model):
     _order = 'registration_date asc, id asc'
 
     name = fields.Char(string='Patient Name', required=True)
-    phone = fields.Char(string='Phone Number', required=True)
+    phone = fields.Char(string='Phone Number')
     email = fields.Char(string='Email')
     token_number = fields.Char(string='Token Number', readonly=True, copy=False)
     registration_date = fields.Datetime(string='Registration Date', default=fields.Datetime.now, readonly=True)

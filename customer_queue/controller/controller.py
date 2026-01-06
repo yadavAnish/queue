@@ -15,7 +15,7 @@ class CustomerQueue(http.Controller):
             _logger.info(f"Received patient registration data: {data}")
 
             # Validate required fields
-            if not data.get('name') or not data.get('phone'):
+            if not data.get('name'):
                 return request.make_response(
                     json.dumps({'success': False, 'error': 'Missing required field: name or phone'}),
                     headers=[('Content-Type', 'application/json')],
